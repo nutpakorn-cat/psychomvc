@@ -3,10 +3,14 @@
 //File : PsychoCommand.php
 //Author : Twiceworld PHP
 //Description : Command System class
-
-class PsychoCommand {
+/*
+include zone
+*/
+include_once "PsychoURL.php";
+class PsychoCommand extends PsychoURL {
+    
     public function render($view = "")
     {
-        return $view;
+        include_once $this->base_path() . "app" . DS . "views" . DS . $view . ".php";
     }
 }

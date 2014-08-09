@@ -6,10 +6,6 @@
 class welcome extends PsychoCommand {
     public function index()
     {
-        echo "WELCOME";   
-    }
-    public function abc()
-    {
-        echo "Hello World";
+        $this->render("welcome");  //แสดงผล Views welcome
     }
 }
