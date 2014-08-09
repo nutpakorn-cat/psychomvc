@@ -8,6 +8,9 @@
         background-color: #f2f2f2;    
     }
     div.block {
+        border-radius: 34px 34px 34px 34px;
+        -moz-border-radius: 34px 34px 34px 34px;
+        -webkit-border-radius: 34px 34px 34px 34px;
         -webkit-box-shadow: 0px 0px 130px 0px rgba(0,0,0,0.89);
         -moz-box-shadow: 0px 0px 130px 0px rgba(0,0,0,0.89);
         box-shadow: 0px 0px 130px 0px rgba(0,0,0,0.89);
