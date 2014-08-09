@@ -67,22 +67,7 @@ else if(count($val) == 0) //ถ้าเรียกแค่ method
 {
     $loadController->$method();
 }
-else //ถ้าเกิดมี value ปล. Code ในส่วนนี้ค่อนข้างรก ใครมี idea ดีๆก็โพสไว้ใน github เลยครับ
+else
 {
-    $code = "\$loadController->$method(";
-    foreach($val as $id => $key)
-    {
-        if(!empty($key))
-        {
-            if($id == count($val) - 1)
-            {
-                $code .= '"' . $key . '");';
-            }
-            else
-            {
-                $code .= '"' . $key . '",';
-            }
-        }
-    }
-    eval($code);
+    call_user_func_array(array($loadController,$method),$val); 
 }
