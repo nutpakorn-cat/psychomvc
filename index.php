@@ -67,7 +67,7 @@ else if(count($val) == 0) //ถ้าเรียกแค่ method
 {
     $loadController->$method();
 }
-else //ถ้าเกิดมี value
+else //ถ้าเกิดมี value ปล. Code ในส่วนนี้ค่อนข้างรก ใครมี idea ดีๆก็โพสไว้ใน github เลยครับ
 {
     $code = "\$loadController->$method(";
     foreach($val as $id => $key)
