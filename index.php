@@ -40,9 +40,15 @@ include_once $_BASE_APP . DS . "system" . DS . "PsychoException.php"; //Exceptio
 
 $boot = new BootLoader();
 
-$target = $boot->getInfoFromUrl($_SERVER['REQUEST_URI']); //เป้าหมาย Controller Method และ value
-
-
+$routeRequest = $boot->getRoute($_SERVER['REQUEST_URI']); //Route
+if(empty($route[$routeRequest]))
+{
+    $target = $boot->getInfoFromUrl($routeRequest);   
+}
+else
+{
+    $target = $boot->getInfoFromUrl($route[$routeRequest]);
+}
 $controller = "";
 $method = "";
 $val = array();

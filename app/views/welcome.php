@@ -4,6 +4,9 @@
     <meta charset="utf-8">
 	<title>PsychoMVC - WELCOME</title>
     <style>
+    /*
+    [Simple CSS] By Twiceworld PHP
+    */
     body {
         background-color: #f2f2f2;    
     }
@@ -30,7 +33,11 @@
         <div class="block">
             <h1 class="text-center">PsychoMVC</h1>
             <hr>
-            <p class="text-center">ขอบคุณที่ร่วมทดสอบระบบ PsychoMVC</p>
+            <p>&nbsp;&nbsp;ข้อมูลระบบ</p>
+            <hr>
+            <p>&nbsp;&nbsp;เวอร์ชั่น : <?=$this->sys_cmd->version()?></p>
+            <p>&nbsp;&nbsp;แก้ไขล่าสุด : <?=$this->sys_cmd->last_date_build()?></p>
+            <p>&nbsp;&nbsp;ผู้พัฒนา : <?=$this->sys_cmd->dev()?></p>
             <hr>
             <br>
         </div>

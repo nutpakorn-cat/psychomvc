@@ -34,4 +34,6 @@ abstract class BootAbstract {
     );
     */
     abstract public function getInfoFromUrl($request_url = "");
+    /* Get route */
+    abstract public function getRoute($urlAfterCutIndex = "");
 }

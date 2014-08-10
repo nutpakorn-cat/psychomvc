@@ -17,6 +17,6 @@ class PsychoCommand {
     {
         $this->url = new PsychoURL();
         $this->sys_cmd = new PsychoSystemCommand();
-        $this->view = new PsychoView($this->url);
+        $this->view = new PsychoView($this->url,$this->sys_cmd);
     }
 }

@@ -5,8 +5,10 @@
 //Description : View class
 class PsychoView {
     public $url;
-    public function __construct($url)
+    public $sys_cmd;
+    public function __construct($url,$sys_cmd)
     {
+        $this->sys_cmd = $sys_cmd;
         $this->url = $url;
     }
     public function render($view = "")

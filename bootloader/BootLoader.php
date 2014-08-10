@@ -10,6 +10,7 @@ Key : Controller , Method and Value
 example url input = www.abc.com/member/get_user/1
 return
 array(
+    "route" => "member/get_user/1"
     "0" => "member",
     "1" => "get_user",
     "2" => "1"
@@ -29,7 +30,8 @@ array(
 );
 */
 class BootLoader extends BootAbstract {
-    public function getInfoFromUrl($request_url = "")
+    
+    public function getRoute($request_url = "")
     {
         global $config; //Set variable $config to a global variable
         global $route; 
@@ -61,6 +63,17 @@ class BootLoader extends BootAbstract {
         {
             $urlAfterCutIndex = substr(strtolower($urlWithoutIndex[1]),1,strlen($urlWithoutIndex[1]));
         }
+        if($urlAfterCutIndex[strlen($urlAfterCutIndex) - 1] == "/") 
+        {
+            $urlAfterCutIndex = substr($urlAfterCutIndex,0,strlen($urlAfterCutIndex) - 1);   
+        }
+        $url = explode("/",$urlAfterCutIndex);
+        return $urlAfterCutIndex;   
+    }
+    public function getInfoFromUrl($urlAfterCutIndex = "")
+    {  
+        global $config; //Set variable $config to a global variable
+        global $route; 
         $url = explode("/",$urlAfterCutIndex);
         //init
         $target = array();

@@ -8,8 +8,4 @@ class welcome extends PsychoCommand {
     {
         $this->view->render("welcome");  //แสดงผล Views welcome
     }
-    public function get_data($id = "")
-    {
-        echo $id;
-    }
 }
