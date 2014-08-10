@@ -1,4 +1,4 @@
-﻿ระบบ PsychoMVC Version 1.0.0 โดย Twiceworld PHP (nutterrocker)
+ระบบ PsychoMVC Version 1.0.0 BUILD 1 โดย Twiceworld PHP (nutterrocker)
 วิธีใช้
 1.นำไฟล์นี้ไปวางไว้ในโฟเดอร์ของคุณ
 2.ไปที่ app/config/base.php

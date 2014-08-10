@@ -15,6 +15,8 @@
 ตัวแปรหลัก 
 ตัวแปร $_BASE_APP คือกำหนดชื่อโฟเดอร์ application ค่า default คือ : app
 */
+error_reporting(E_ERROR | E_PARSE);
+
 $_BASE_APP = "app";
 
 //กำหนด Constant ชื่อ DS ค่าเป็นเครื่องหมาย \
@@ -24,12 +26,17 @@ define("DS",DIRECTORY_SEPARATOR);
 โหลด Config
 */
 include_once $_BASE_APP . DS . "config" . DS . "base.php"; //การตั้งค่าหลัก
-include_once $_BASE_APP . DS . "system" . DS . "PsychoCommand.php"; //คำสั่งหลัก
 include_once $_BASE_APP . DS . "config" . DS . "route.php"; //การตั้งค่า Route
 /* โหลดระบบ MVCBootloader */
 include_once "bootloader" . DS . "BootAbstract.php";
 
 include_once "bootloader" . DS . "BootLoader.php";
+
+/*
+โหลดระบบ PsychoMVC
+*/
+include_once $_BASE_APP . DS . "system" . DS . "PsychoCommand.php"; //คำสั่งหลัก
+include_once $_BASE_APP . DS . "system" . DS . "PsychoException.php"; //Exception
 
 $boot = new BootLoader();
 
@@ -55,19 +62,39 @@ foreach($target as $id => $v)
         $val[] = $v;
     }
 }
-
 //เรียกใช้งาน Controller
-include_once $_BASE_APP . DS . "controllers" . DS . $controller . ".php";
-$loadController = new $controller();
-if(empty($method)) //ถ้าไม่ได้ระบุ method
+
+if(include_once $_BASE_APP . DS . "controllers" . DS . $controller . ".php")
 {
-    $loadController->index();
-}
-else if(count($val) == 0) //ถ้าเรียกแค่ method
-{
-    $loadController->$method();
+    $loadController = new $controller();
+    if(empty($method)) //ถ้าไม่ได้ระบุ method
+    {
+        if(method_exists($loadController,"index"))
+        {
+            $loadController->index();
+        }
+        else
+        {
+            $exception = new PsychoException("404_METHOD");
+        }
+    }
+    else if(count($val) == 0) //ถ้าเรียกแค่ method
+    {
+        if(method_exists($loadController,$method))
+        {
+            $loadController->$method();
+        }
+        else
+        {
+            $exception = new PsychoException("404_METHOD");
+        }
+    }
+    else
+    {
+        call_user_func_array(array($loadController,$method),$val); 
+    }
 }
 else
 {
-    call_user_func_array(array($loadController,$method),$val); 
+    $exception = new PsychoException("404_CONTROLLER");
 }

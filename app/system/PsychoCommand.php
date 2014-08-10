@@ -7,10 +7,16 @@
 include zone
 */
 include_once "PsychoURL.php";
-class PsychoCommand extends PsychoURL {
-    
-    public function render($view = "")
+include_once "PsychoView.php";
+include_once "PsychoSystemCommand.php";
+class PsychoCommand {
+    public $url;
+    public $sys_cmd;
+    public $view;
+    public function __construct()
     {
-        include_once $this->base_path() . "app" . DS . "views" . DS . $view . ".php";
+        $this->url = new PsychoURL();
+        $this->sys_cmd = new PsychoSystemCommand();
+        $this->view = new PsychoView($this->url);
     }
 }

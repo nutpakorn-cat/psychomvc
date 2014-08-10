@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteBase /psychomvc/
+RewriteCond $1 !^(index\.php|bootloader|app)
+RewriteRule ^(.*)$ index.php [L]

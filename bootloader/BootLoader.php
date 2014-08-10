@@ -74,7 +74,7 @@ class BootLoader extends BootAbstract {
                 }
                 else //value
                 {
-                    $target[] = $value;
+                    $target[] = preg_replace('/[^A-Za-z0-9\-]/', '', $value); //Strip special characters
                 }
             }
             else if(empty($value) && !$id)
