@@ -38,6 +38,7 @@
             <p>&nbsp;&nbsp;เวอร์ชั่น : <?=$this->sys_cmd->version()?></p>
             <p>&nbsp;&nbsp;แก้ไขล่าสุด : <?=$this->sys_cmd->last_date_build()?></p>
             <p>&nbsp;&nbsp;ผู้พัฒนา : <?=$this->sys_cmd->dev()?></p>
+            <p><?=$this->render("test")?></p>
             <hr>
             <br>
         </div>

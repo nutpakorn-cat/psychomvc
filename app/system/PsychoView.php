@@ -6,10 +6,12 @@
 class PsychoView {
     public $url;
     public $sys_cmd;
-    public function __construct($url,$sys_cmd)
+    public $db;
+    public function __construct($url,$sys_cmd,$db)
     {
         $this->sys_cmd = $sys_cmd;
         $this->url = $url;
+        $this->db = $db;
     }
     public function render($view = "")
     {

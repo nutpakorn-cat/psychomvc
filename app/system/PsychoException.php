@@ -8,16 +8,11 @@ class PsychoException {
     public $error;
     public $error_page = "error.php"; //ชื่อ view error
     
-    //ERROR TEXT
-    public $error_txt = array(
-        "404_CONTROLLER" => "ไม่พบ Controller นี้ในระบบ",
-        "404_METHOD" => "ไม่พบ method นี้ในคลาส"
-    );
     
     
     public function __construct($error = "")
     {
-        $this->error = $this->error_txt[$error];
+        $this->error = $error;
         $this->render_error();
     }
     

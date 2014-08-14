@@ -26,6 +26,8 @@ define("DS",DIRECTORY_SEPARATOR);
 โหลด Config
 */
 include_once $_BASE_APP . DS . "config" . DS . "base.php"; //การตั้งค่าหลัก
+include_once $_BASE_APP . DS . "config" . DS . "database.php"; //Database
+include_once $_BASE_APP . DS . "config" . DS . "switch.php"; //ตั้งค่าเกี่ยวกับ lib ต่างๆ
 include_once $_BASE_APP . DS . "config" . DS . "route.php"; //การตั้งค่า Route
 /* โหลดระบบ MVCBootloader */
 include_once "bootloader" . DS . "BootAbstract.php";
@@ -35,6 +37,7 @@ include_once "bootloader" . DS . "BootLoader.php";
 /*
 โหลดระบบ PsychoMVC
 */
+/* DATABASE */
 include_once $_BASE_APP . DS . "system" . DS . "PsychoCommand.php"; //คำสั่งหลัก
 include_once $_BASE_APP . DS . "system" . DS . "PsychoException.php"; //Exception
 
@@ -81,7 +84,7 @@ if(include_once $_BASE_APP . DS . "controllers" . DS . $controller . ".php")
         }
         else
         {
-            $exception = new PsychoException("404_METHOD");
+            $exception = new PsychoException("ไม่พบ Method นี้ในระบบ METHOD : $method");
         }
     }
     else if(count($val) == 0) //ถ้าเรียกแค่ method
@@ -92,7 +95,7 @@ if(include_once $_BASE_APP . DS . "controllers" . DS . $controller . ".php")
         }
         else
         {
-            $exception = new PsychoException("404_METHOD");
+            $exception = new PsychoException("ไม่พบ Method นี้ในระบบ METHOD : $method");
         }
     }
     else
@@ -102,5 +105,5 @@ if(include_once $_BASE_APP . DS . "controllers" . DS . $controller . ".php")
 }
 else
 {
-    $exception = new PsychoException("404_CONTROLLER");
+    $exception = new PsychoException("ไม่พบ Controllers นี้ในระบบ Controllers : $controller");
 }
