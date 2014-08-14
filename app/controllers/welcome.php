@@ -10,7 +10,7 @@ class welcome extends PsychoCommand {
         $query = $this->db->read("member");
         foreach($query as $id => $name)
         {
-            echo "|$id|$name|<br>";   
+            echo "|$name|<br>";   
         }
     }
 }
