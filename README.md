@@ -20,6 +20,4 @@ localhost/โฟเดอร์/<br>
 เรียกใช้ Controller ในกรณีไม่ได้ใช้ mod_rewrite<br>
 localhost/โฟเดอร์/index.php/controller<br>
 <br>
-ปล... รุ่นนี้ยังเป็ฯรุ่นล่าสุดดังนั้น จะยังไม่มีการ redirect error แต่อย่างใด ใครมีไอเดีย พบจุดบกพร่อง สามารถเสนอได้ที่ github เลยครับ<br>
-หรือเข้ามาคุยกันโดยตรงที่<br>
-FACEBOOK : https://www.facebook.com/nutter.rocker<br>
+ปล... รุ่นนี้ยังเป็นรุ่นล่าสุดดังนั้น จะยังไม่มีการ redirect error แต่อย่างใด ใครมีไอเดีย พบจุดบกพร่อง สามารถเสนอได้ที่ github เลยครับ
